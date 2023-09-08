@@ -6,7 +6,7 @@ from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 import random
-from numpy import random as nprand
+# from numpy import random as nprand
 
 
 Builder.load_string("""
@@ -22,7 +22,7 @@ Builder.load_string("""
         id: sp1
         size_hint: .3, .2        
 		pos_hint: {'x': 0.55,'y':0.7}
-        text: "6"	        
+        text: "12"	        
         values:'4','6','12','20','35','45','50','80','90'
 		font_size: 50  
 		on_text: root.szamol()  	                           
@@ -43,12 +43,12 @@ Builder.load_string("""
 """)
 
 class Szamolo(FloatLayout):
-	def szamol(self):
-		maxszam=int(self.sp1.text)
-		number=random.randint(1,maxszam)  #  1-maxszam közötti véletlen szám
-		number2=nprand.randint(maxszam)+1
-		self.lab2.text =str(number) + '  ' + str(number2) 
-	
+    def szamol(self):
+        maxszam=int(self.sp1.text)
+        number=random.randint(1,maxszam)  #  1-maxszam közötti véletlen szám
+        # number2=nprand.randint(maxszam)+1
+        self.lab2.text =str(number) # + '  ' + str(number2) 
+
 class MainApp(App):
     def build(self):
         return Szamolo()
