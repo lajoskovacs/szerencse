@@ -22,7 +22,7 @@ Builder.load_string("""
         id: sp1
         size_hint: .3, .2        
 		pos_hint: {'x': 0.55,'y':0.7}
-        text: "12"	        
+        text: '6'	        
         values:'4','6','12','20','35','45','50','80','90'
 		font_size: 50  
 		on_text: root.szamol()  	                           
