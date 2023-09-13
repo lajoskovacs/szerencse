@@ -38,8 +38,10 @@ Builder.load_string('''
     text1szamok: text1szamok
     text2tippek: text2tippek
     sl2hiba: sl2hiba
+    do_default_tab: False
 
     TabbedPanelItem:
+        text: 'Tipp'
         FloatLayout:
 	        TextInput:				
 		        text: 'Lottó, Kenó, Puttó'
@@ -108,6 +110,7 @@ Builder.load_string('''
                 readonly: True
 
     TabbedPanelItem:
+        text: 'Hibapont'
         FloatLayout:                  
 	        Label:				
 		        text: 'Hibapont'
