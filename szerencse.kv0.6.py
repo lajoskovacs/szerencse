@@ -17,6 +17,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
 from kivy.uix.spinner import Spinner
 from kivy.uix.slider import Slider
+from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
 from kivy.uix.popup import Popup
@@ -38,119 +39,123 @@ Builder.load_string('''
     text2tippek: text2tippek
     sl2hiba: sl2hiba
 
-	TextInput:				
-		text: 'Lottó, Kenó, Puttó'
-		pos_hint: {'top':1}
-        size_hint: 1, 1/10		
-		font_size: self.width/10
-        foreground_color:1,0,0,1
-        background_color:1,1,0,1
-        multiline: False
-        readonly: True
+    TabbedPanelItem:
+        FloatLayout:
+	        TextInput:				
+		        text: 'Lottó, Kenó, Puttó'
+		        pos_hint: {'top':1}
+                size_hint: 1, 1/10		
+		        font_size: self.width/10
+                foreground_color:1,0,0,1
+                background_color:1,1,0,1
+                multiline: False
+                readonly: True
         
-	Label:				
-		text: 'Játék'
-		pos_hint: {'top':18/20}
-        size_hint: 1/3, 1/20	
-		font_size: self.width/8         
+	        Label:				
+		        text: 'Játék'
+		        pos_hint: {'top':18/20}
+                size_hint: 1/3, 1/20	
+		        font_size: self.width/8         
         
-    Spinner: 
-        id: sp1jatek
-        text: "Kenó10"
-		pos_hint: {'top':17/20}
-        size_hint: 1/3, 1/20	        
-        values:'Lottó 5','Lottó 6','Lottó 7','Euro JP','Puttó','Kenó10','Kenó9','Kenó8','Kenó7','Kenó6','Kenó5','Kenó4'
-		font_size: self.width/8
-        on_text: root.selectgame()
+            Spinner: 
+                id: sp1jatek
+                text: "Kenó10"
+		        pos_hint: {'top':17/20}
+                size_hint: 1/3, 1/20	        
+                values:'Lottó 5','Lottó 6','Lottó 7','Euro JP','Puttó','Kenó10','Kenó9','Kenó8','Kenó7','Kenó6','Kenó5','Kenó4'
+		        font_size: self.width/8
+                on_text: root.selectgame()
         
-	Label:				
-		text: 'Mennyi szám?'
-		pos_hint: {'right':1,'top':18/20}
-        size_hint: 1/2, 1/20	
-		font_size: self.width/10   
+	        Label:				
+		        text: 'Mennyi szám?'
+		        pos_hint: {'right':1,'top':18/20}
+                size_hint: 1/2, 1/20	
+		        font_size: self.width/10   
         
-    Slider: 
-        id: sl1szamdb
-		pos_hint: {'right':1,'top':17/20}
-        size_hint: 1/2, 1/20       
-        min: 10
-        max: 18
-        value: 10
-        step: 1
-        on_value: root.selectnumber()
+            Slider: 
+                id: sl1szamdb
+		        pos_hint: {'right':1,'top':17/20}
+                size_hint: 1/2, 1/20       
+                min: 10
+                max: 18
+                value: 10
+                step: 1
+                on_value: root.selectnumber()
   
-	Label:		
-        id: lab3szamdb
-		text: str(sl1szamdb.value)
-		pos_hint: {'right':9/10,'top':16/20}
-        size_hint: 1/6, 1/20	
-		font_size: self.width/4          
+	        Label:		
+                id: lab3szamdb
+		        text: str(sl1szamdb.value)
+		        pos_hint: {'right':9/10,'top':16/20}
+                size_hint: 1/6, 1/20	
+		        font_size: self.width/4          
      
-	Button:				
-		text: 'véletlen számok'
-		pos_hint: {'top':15/20}
-        size_hint: 9/20, 1/20	
-		font_size: self.width/10  
-        on_press: root.randomTip() 
+	        Button:				
+		        text: 'véletlen számok'
+		        pos_hint: {'top':15/20}
+                size_hint: 9/20, 1/20	
+		        font_size: self.width/10  
+                on_press: root.randomTip() 
 		     
-	TextInput:	
-        id: text1szamok
-		text: ' '
-		pos_hint: {'top':14/20}
-        size_hint: 7/10, 2/15		
-		font_size: self.width/12
-        foreground_color:1,0,0,1
-        background_color:0,0,0.5,1
-        multiline: True
-        readonly: True
+	        TextInput:	
+                id: text1szamok
+		        text: ' '
+		        pos_hint: {'top':14/20}
+                size_hint: 7/10, 2/15		
+		        font_size: self.width/12
+                foreground_color:1,0,0,1
+                background_color:0,0,0.5,1
+                multiline: True
+                readonly: True
+
+    TabbedPanelItem:
+        FloatLayout:                  
+	        Label:				
+		        text: 'Hibapont'
+		        pos_hint: {'right':1,'top':14/20}
+                size_hint: 1/4, 1/20	
+		        font_size: self.width/5      
         
-	Label:				
-		text: 'Hibapont'
-		pos_hint: {'right':1,'top':14/20}
-        size_hint: 1/4, 1/20	
-		font_size: self.width/5      
-        
-    Slider: 
-        id: sl2hiba
-		pos_hint: {'right':1,'top':13/20}
-        size_hint: 1/4, 1/20        
-        min: 0
-        max: 5
-        value: 0
-        step: 1
-        on_value: root.selecthiba()
+            Slider: 
+                id: sl2hiba
+		        pos_hint: {'right':1,'top':13/20}
+                size_hint: 1/4, 1/20        
+                min: 0
+                max: 5
+                value: 0
+                step: 1
+                on_value: root.selecthiba()
   
-	Label:		
-        id: lab4hiba
-		text: str(sl2hiba.value)
-		pos_hint: {'right':9/10,'top':12/20}
-        size_hint: 1/8, 1/20	
-		font_size: self.width/3            
+	        Label:		
+                id: lab4hiba
+		        text: str(sl2hiba.value)
+		        pos_hint: {'right':9/10,'top':12/20}
+                size_hint: 1/8, 1/20	
+		        font_size: self.width/3            
         
         
-	Button:				
-		text: 'Hibapontos kombináció'
-		pos_hint: {'top':11/20}
-        size_hint: 6/10, 1/20	
-		font_size: self.width/15  
-        on_press: root.combinationTip() 
+	        Button:				
+		        text: 'Hibapontos kombináció'
+		        pos_hint: {'top':11/20}
+                size_hint: 6/10, 1/20	
+		        font_size: self.width/15  
+                on_press: root.combinationTip() 
 		     
-	TextInput:	
-        id: text2tippek
-		text: ' '
-		pos_hint: {'top':10/20}
-        size_hint: 1, 5/10		
-		font_size: self.width/16
-        foreground_color:1,0,0,1
-        background_color:0,0,0.5,1
-        multiline: True
-        readonly: False                                          
+	        TextInput:	
+                id: text2tippek
+		        text: ' '
+		        pos_hint: {'top':10/20}
+                size_hint: 1, 5/10		
+		        font_size: self.width/16
+                foreground_color:1,0,0,1
+                background_color:0,0,0.5,1
+                multiline: True
+                readonly: False                                          
 		                                                          
 ''')
 
 
 
-class LuckyWidget(FloatLayout):
+class LuckyWidget(TabbedPanel):
 	
 
     #******************************************************************************	
