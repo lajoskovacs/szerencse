@@ -6,7 +6,7 @@
 # os.environ['KIVY_NO_CONSOLELOG']='1'
 
 from kivy.config import Config 
-Config.set('graphics','width','640')
+Config.set('graphics','width','800')
 Config.set('graphics','height','1000')
 # Config.set('graphics','resizable','0')
 
@@ -97,7 +97,7 @@ Builder.load_string('''
 		text: ' '
 		pos_hint: {'top':14/20}
         size_hint: 7/10, 2/15		
-		font_size: self.width/15
+		font_size: self.width/12
         foreground_color:1,0,0,1
         background_color:0,0,0.5,1
         multiline: True
@@ -139,7 +139,7 @@ Builder.load_string('''
 		text: ' '
 		pos_hint: {'top':10/20}
         size_hint: 1, 5/10		
-		font_size: self.width/20
+		font_size: self.width/16
         foreground_color:1,0,0,1
         background_color:0,0,0.5,1
         multiline: True
