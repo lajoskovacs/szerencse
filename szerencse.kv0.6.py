@@ -67,30 +67,8 @@ Builder.load_string('''
                 values:'Lottó 5','Lottó 6','Lottó 7','Euro JP','Puttó','Kenó10','Kenó9','Kenó8','Kenó7','Kenó6','Kenó5','Kenó4'
 		        font_size: self.width/8
                 on_text: root.selectgame()
-        
-	        Label:				
-		        text: 'Mennyi szám?'
-		        pos_hint: {'right':1,'top':18/20}
-                size_hint: 1/2, 1/20	
-		        font_size: self.width/10   
-        
-            Slider: 
-                id: sl1szamdb
-		        pos_hint: {'right':1,'top':17/20}
-                size_hint: 1/2, 1/20       
-                min: 10
-                max: 18
-                value: 10
-                step: 1
-                on_value: root.selectnumber()
-  
-	        Label:		
-                id: lab3szamdb
-		        text: str(sl1szamdb.value)
-		        pos_hint: {'right':9/10,'top':16/20}
-                size_hint: 1/6, 1/20	
-		        font_size: self.width/4          
-     
+
+
 	        Button:				
 		        text: 'véletlen számok'
 		        pos_hint: {'top':15/20}
@@ -111,7 +89,30 @@ Builder.load_string('''
 
     TabbedPanelItem:
         text: 'Hibapont'
-        FloatLayout:                  
+        FloatLayout:
+            Label:				
+                text: 'Mennyi szám?'
+                pos_hint: {'right':1,'top':18/20}
+                size_hint: 1/2, 1/20	
+		        font_size: self.width/10   
+        
+            Slider: 
+                id: sl1szamdb
+		        pos_hint: {'right':1,'top':17/20}
+                size_hint: 1/2, 1/20       
+                min: 10
+                max: 18
+                value: 10
+                step: 1
+                on_value: root.selectnumber()
+  
+	        Label:		
+                id: lab3szamdb
+		        text: str(sl1szamdb.value)
+		        pos_hint: {'right':9/10,'top':16/20}
+                size_hint: 1/6, 1/20	
+		        font_size: self.width/4                             
+
 	        Label:				
 		        text: 'Hibapont'
 		        pos_hint: {'right':1,'top':14/20}
