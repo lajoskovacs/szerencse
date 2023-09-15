@@ -55,51 +55,29 @@ Builder.load_string('''
         
 	        Label:				
 		        text: 'Játék'
-		        pos_hint: {'top':18/20}
-                size_hint: 1/3, 1/20	
-		        font_size: self.width/8         
+		        pos_hint: {'top':17/20}
+                size_hint: 1/6, 1/10	
+		        font_size: self.width/4         
         
             Spinner: 
                 id: sp1jatek
                 text: "Kenó10"
-		        pos_hint: {'top':17/20}
-                size_hint: 1/3, 1/20	        
+		        pos_hint: {'top':17/20, 'right':3/6}
+                size_hint: 1/3, 1/10	        
                 values:'Lottó 5','Lottó 6','Lottó 7','Euro JP','Puttó','Kenó10','Kenó9','Kenó8','Kenó7','Kenó6','Kenó5','Kenó4'
 		        font_size: self.width/8
                 on_text: root.selectgame()
 
-
-	        Button:				
-		        text: 'véletlen számok'
-		        pos_hint: {'top':15/20}
-                size_hint: 9/20, 1/20	
-		        font_size: self.width/10  
-                on_press: root.randomTip() 
-		     
-	        TextInput:	
-                id: text1szamok
-		        text: ' '
-		        pos_hint: {'top':14/20}
-                size_hint: 7/10, 2/15		
-		        font_size: self.width/12
-                foreground_color:1,0,0,1
-                background_color:0,0,0.5,1
-                multiline: True
-                readonly: True
-
-    TabbedPanelItem:
-        text: 'Hibapont'
-        FloatLayout:
             Label:				
                 text: 'Mennyi szám?'
-                pos_hint: {'right':1,'top':18/20}
-                size_hint: 1/2, 1/20	
-		        font_size: self.width/10   
-        
+                pos_hint: {'top':14/20}
+                size_hint: 1/3, 1/15	
+		        font_size: self.width/8   
+
             Slider: 
                 id: sl1szamdb
-		        pos_hint: {'right':1,'top':17/20}
-                size_hint: 1/2, 1/20       
+		        pos_hint: {'right':2/3,'top':14/20}
+                size_hint: 1/3, 1/15      
                 min: 10
                 max: 18
                 value: 10
@@ -109,20 +87,52 @@ Builder.load_string('''
 	        Label:		
                 id: lab3szamdb
 		        text: str(sl1szamdb.value)
-		        pos_hint: {'right':9/10,'top':16/20}
+		        pos_hint: {'right':1/2,'top':13/20}
                 size_hint: 1/6, 1/20	
-		        font_size: self.width/4                             
+		        font_size: self.width/4            
+
+	        Button:				
+		        text: 'véletlen számok'
+		        pos_hint: {'top':10/20}
+                size_hint: 9/20, 1/10	
+		        font_size: self.width/10  
+                on_press: root.randomTip() 
+		     
+	        TextInput:	
+                id: text1szamok
+		        text: ' '
+		        pos_hint: {'top':8/20}
+                size_hint: 8/10, 2/10		
+		        font_size: self.width/12
+                foreground_color:1,0,0,1
+                background_color:0,0,0.5,1
+                multiline: True
+                readonly: True
+
+    TabbedPanelItem:
+        text: 'Kombinációk'
+        FloatLayout:
+            TextInput:				
+		        text: 'Lottó, Kenó, Puttó'
+		        pos_hint: {'top':1}
+                size_hint: 1, 1/10		
+		        font_size: self.width/10
+                foreground_color:1,0,0,1
+                background_color:1,1,0,1
+                multiline: False
+                readonly: True 
+                                             
 
 	        Label:				
 		        text: 'Hibapont'
-		        pos_hint: {'right':1,'top':14/20}
-                size_hint: 1/4, 1/20	
-		        font_size: self.width/5      
+		        pos_hint: {'top':18/20}
+                size_hint: 1/4, 1/10	
+		        font_size: self.width/6      
         
             Slider: 
                 id: sl2hiba
-		        pos_hint: {'right':1,'top':13/20}
-                size_hint: 1/4, 1/20        
+		        pos_hint: {'right':1/2,'top':18/20}
+                size_hint: 1/4, 1/10        
                 min: 0
                 max: 5
                 value: 0
@@ -132,23 +142,23 @@ Builder.load_string('''
 	        Label:		
                 id: lab4hiba
 		        text: str(sl2hiba.value)
-		        pos_hint: {'right':9/10,'top':12/20}
-                size_hint: 1/8, 1/20	
-		        font_size: self.width/3            
+		        pos_hint: {'right':3/4,'top':18/20}
+                size_hint: 1/4, 1/10	
+		        font_size: self.width/6            
         
         
 	        Button:				
 		        text: 'Hibapontos kombináció'
-		        pos_hint: {'top':11/20}
-                size_hint: 6/10, 1/20	
+		        pos_hint: {'top':15/20}
+                size_hint: 6/10, 1/10	
 		        font_size: self.width/15  
                 on_press: root.combinationTip() 
 		     
 	        TextInput:	
                 id: text2tippek
 		        text: ' '
-		        pos_hint: {'top':10/20}
-                size_hint: 1, 5/10		
+		        pos_hint: {'top':13/20}
+                size_hint: 1, 6/10		
 		        font_size: self.width/16
                 foreground_color:1,0,0,1
                 background_color:0,0,0.5,1
