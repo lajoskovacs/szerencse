@@ -65,7 +65,7 @@ Builder.load_string('''
 		        pos_hint: {'top':17/20, 'right':3/6}
                 size_hint: 1/3, 1/10	        
                 values:'Lottó 5','Lottó 6','Lottó 7','Euro JP','Puttó','Kenó10','Kenó9','Kenó8','Kenó7','Kenó6','Kenó5','Kenó4'
-		        font_size: self.width/8
+		        font_size: self.width/6
                 on_text: root.selectgame()
 
             Label:				
@@ -151,7 +151,7 @@ Builder.load_string('''
 		        text: 'Hibapontos kombináció'
 		        pos_hint: {'top':15/20}
                 size_hint: 6/10, 1/10	
-		        font_size: self.width/15  
+		        font_size: self.width/12 
                 on_press: root.combinationTip() 
 		     
 	        TextInput:	
@@ -159,7 +159,7 @@ Builder.load_string('''
 		        text: ' '
 		        pos_hint: {'top':13/20}
                 size_hint: 1, 6/10		
-		        font_size: self.width/16
+		        font_size: self.width/12 
                 foreground_color:1,0,0,1
                 background_color:0,0,0.5,1
                 multiline: True
@@ -339,15 +339,15 @@ class LuckyWidget(TabbedPanel):
         self.text2tippek.text += " esély a telitalálatra 1db tippel -> \n  1 : " + str(ods) 
         show_mypopup()
         tmess=self.tippgen(self.minszam,self.szamok,self.tippek)
-        self.text2tippek.text += "\n \n" + tmess + "\n Kombinációk (tippek) száma: " + str(len(self.tippek))
+        self.text2tippek.text += "\n \n" + tmess + "\n Kombinációk (tippek) \n      száma: " + str(len(self.tippek))
         if self.hiba==0:
             for i in self.tippek:
                 self.text2tippek.text += "\n " + str(i)[1:-1]  
         else:
             self.faultcombTip(self.hiba,self.tippek,self.hibatippek)    
-            self.text2tippek.text += "\n  Hibapontos komb. száma: " + str(len(self.hibatippek))    
+            self.text2tippek.text += "\n  Hibapontos komb. \n     száma: " + str(len(self.hibatippek))    
             for i in self.hibatippek:
-                self.text2tippek.text += "\n " + str(i)[1:-1]
+                self.text2tippek.text += "\n " + str(i)[1:-1] + "\n "
                    
             
     #******************************************************************************
